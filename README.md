@@ -5,11 +5,27 @@ This is a python project for RIS(reconfigurable intelligent surface) simulations
 1. My first paper [Link to my paper](https://ieeexplore.ieee.org/document/9434412):
 > X. Guo, Y. Chen and Y. Wang, "Learning-based Robust and Secure Transmission for Reconfigurable Intelligent Surface Aided Millimeter Wave UAV Communications," in IEEE Wireless Communications Letters, doi: 10.1109/LWC.2021.3081464.
 
+2. DDPG structure
+> Refer to the following code on github:</br>
+$\qquad$ a. [tf-agent](https://github.com/tensorflow/agents#Agents) this is the easiest way the use the official RL(reinforcement learning) api.</br>
+$\qquad$ b. open source RL api using tensorflow: 
+
 # What this project aims ?
 This project aims to redo the simulations shown in the paper below [Link to this paper](https://arxiv.org/abs/2103.15154):
 > Zhang, Zijian, et al. "Active RIS vs. Passive RIS: Which Will Prevail in 6G?." arXiv preprint arXiv:2103.15154 (2021).
 
 Specifically, in this project we will simulate the active RIS. And to maximum the universality, this project will provide modular simulation tool for RIS-aided system.
+
+# File structure
+## ./cite
+The cited paper for this project
+
+## ./learning
+The code to initialize the agents
+### $\qquad$ ./learning/official
+$\qquad$ The offical RL agents api ([tf-agent](https://github.com/tensorflow/agents#Agents))
+### $\qquad$ ./learning/custom
+$\qquad$ The third party open source RL agent api
 
 # Others
 coding platform: Win10 pro, anaconda3

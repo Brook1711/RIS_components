@@ -1,2 +1,4 @@
 tensorflow==2.5.0
 tf-agents==0.8.0
+matplotlib==3.4.2
+gym==0.18.3

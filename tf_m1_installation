@@ -1,0 +1,30 @@
+# 这里...替换成步骤2中安装的文件的路径（下同）
+libs="/Users/guoxufeng/demo/tf_m1/"
+
+# 将envname换成你自己创建环境时起的名字
+env="/Users/guoxufeng/demo/miniforge3/envs/tf-m1"
+
+# 运行以下代码
+conda upgrade -c conda-forge pip setuptools cached-property six
+
+python -m pip install --upgrade -t "$env/lib/python3.8/site-packages/" --no-dependencies --force "$libs/grpcio-1.33.2-cp38-cp38-macosx_11_0_arm64.whl"
+
+python -m pip install --upgrade -t "$env/lib/python3.8/site-packages/" --no-dependencies --force "$libs/h5py-2.10.0-cp38-cp38-macosx_11_0_arm64.whl"
+
+python -m pip install --upgrade -t "$env/lib/python3.8/site-packages/" --no-dependencies --force "$libs/tensorflow_addons_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl"
+
+conda install -c conda-forge -y absl-py
+conda install -c conda-forge -y astunparse
+conda install -c conda-forge -y gast
+conda install -c conda-forge -y opt_einsum
+conda install -c conda-forge -y termcolor
+conda install -c conda-forge -y typing_extensions
+conda install -c conda-forge -y wheel
+conda install -c conda-forge -y typeguard
+
+python -m pip install tensorboard
+
+python -m pip install wrapt flatbuffers tensorflow_estimator google_pasta keras_preprocessing protobuf
+
+#这里要查看你下载的whl文件的版本，如何查看版本见下图
+python -m pip install --upgrade -t "$env/lib/python3.8/site-packages/" --no-dependencies --force "$libs/tensorflow_macos-0.1a3-cp38-cp38-macosx_11_0_arm64.whl"

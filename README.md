@@ -37,12 +37,57 @@ this section mainly refers to [2].
 ## RIS-Assisted LOS channels
 According to the plate scattering theory[2,(1)], the transmitted signal is captured by each RIS element, then rescattered to the medium in all directions. Focusing on he $n$-th RIS element, the captured power on it can be readily obtained as
 $$
-P_{n}^{RIS}=\frac{P_tG_tG_E^{Tx}\lambda^2}{(4\pi)^2a_n^2}
+P_{n}^{RIS}=\frac{P_tG_tG_e^{Tx}\lambda^2}{(4\pi)^2a_n^2}
 \tag{1}
 $$
-where $P_t$ is the transmit power,$G_t$ is the transmit antenna gain in the direction of the $n$-th RIS element (or the RIS in general), $G_e^{Tx}$ is the gain of the corresponding RIS element in the direction of the transmitter (Tx), $\lambda$ is the wavelength, and $$
+where $P_t$ is the transmit power,$G_t$ is the transmit antenna gain in the direction of the $n$-th RIS element (or the RIS in general), $G_e^{Tx}$ is the gain of the corresponding RIS element in the direction of the transmitter (Tx), $\lambda$ is the wavelength, and $a_n$ is the distance between the transmitter and this element. The effective aperture of the $n$-th RIS element is $G_{e}^{\mathrm{Tx}} \lambda^{2} /(4 \pi)$, and the power flux density incident on it given by $P_{t} G_{t} /\left(4 \pi a_{n}^{2}\right)$. Then the captured power is re-radiated to the medium with an efficiency factor $\epsilon$, which in [2] is assumed to be unity.
+
+The captured power at the receiver (Rx) is obtained as
+
+$$
+P_{n}^{\mathrm{Rx}}=\frac{P_{n}^{\mathrm{RIS}} G_{e}^{\mathrm{Rx}} G_{r} \lambda^{2}}{(4 \pi)^{2} b_{n}^{2}}=\frac{P_{t} G_{t} G_{r} G_{e}^{\mathrm{Tx}} G_{e}^{\mathrm{Rx}} \lambda^{4}}{(4 \pi)^{4} a_{n}^{2} b_{n}^{2}}\tag{2}
+$$
+
+where $G_r$ is the receive antenna gain in the direction of the $n$-th RIS element and $G_{e}^{\mathrm{Rx}}$ is the gain of the corresponding RIS element in the direction of the receiver. For the same scenario, let us consider the radar range equation given by
+
+$$
+P_{r}=\frac{P_{t} G_{t} G_{r} \lambda^{2} \sigma_{\mathrm{RCS}}}{(4 \pi)^{3} a_{n}^{2} b_{n}^{2}} \tag{3}
+$$
+
+where $\sigma_{\mathrm{RCS}}=4 \pi A^{2} / \lambda^{2}$ is the radar cross section (RCS, in $m^2$) of the RIS element with $A$ being its physical area. (2) and (3) are actually the same, given $\sigma_{RCS} =\lambda^{2} G_{e}^{2} / 4 \pi$.
+
+Let's assum the parameters as:
+
+|                       Parameter                       |
+| :---------------------------------------------------: |
+|                 $P_t = 0\ \text{dBW}$                 |
+|            $G_t= G_r = 1\ (0\ \text{dBi})$            |
+| $ G_{e}=\pi\ (5\ \mathrm{dBi})$      (Reference)[2-9] |
+
+Then the received power through $n$-th RIS element is:
+$$
+P_{n}^{\mathrm{Rx}}=\frac{G_{e}^{2} \lambda^{4}}{(4 \pi)^{4} a_{n}^{2} b_{n}^{2}}\tag{4}
+$$
+The total path loss is:
+$$
+L_{n}=L_{n, 1} \times L_{n, 2}=\frac{G_{e} \lambda^{2}}{(4 \pi)^{2} a_{n}^{2}} \times \frac{G_{e} \lambda^{2}}{(4 \pi)^{2} b_{n}^{2}}\tag{5}
+$$
+In general, the received signal at the receiver is:
+$$
+y=\left(\sum_{n=1}^{N} \sqrt{P_{n}^{\mathrm{Rx}}}\left(\alpha_{n} e^{j \phi_{n}}\right) e^{-j k\left(a_{n}+b_{n}\right)}\right) x\tag{6}
+$$
+Where $\alpha_n$ and $ \phi_n$ respectively stand for controllable magnitude and phase response of the *n*th element, $k=2 \pi / \lambda$ is the wave number, and $x$ is the transmitted signal. . One can easily observe from (6) that the received signal power can be maximized by adjusting RIS element phases as $\phi_{n}=k\left(a_{n}+b_{n}\right)$.  Finally, it is worth noting that the direct link between Tx and Rx can be incorporated into the model by
+$$
+y=\left(\sum_{n=1}^{N} \sqrt{P_{n}^{\mathrm{Rx}}}\left(\alpha_{n} e^{j \phi_{n}}\right) e^{-j k\left(a_{n}+b_{n}\right)}+\sqrt{P_{\mathrm{T}-\mathrm{R}}} e^{-j k d_{\mathrm{T-R}}}\right) x\tag{7}
+$$
+Where $P_{\mathrm{T}-\mathrm{R}}=\lambda^{2} /\left(4 \pi d_{\mathrm{T}-\mathrm{R}}\right)^{2}$ and $d_{T-R}$ being the Tx-Rx distance.
+
+
+
+
 
 # Others
+
 coding platform: Win10 pro, anaconda3
 
 nvidia driver: 466.47

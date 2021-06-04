@@ -1,4 +1,5 @@
 # RIS components
+
 This is a python project for RIS(reconfigurable intelligent surface) simulations.
 
 # related works
@@ -33,8 +34,9 @@ $\qquad$ The offical RL agents api ([tf-agent](https://github.com/tensorflow/age
 $\qquad$ The third party open source RL agent api
 
 # RIS theory
-this section mainly refers to [2]. 
-## RIS-Assisted LOS channels
+this section mainly refers to [2] (SimRIS1.0) and [2.2] (SimRIS2.0). 
+## RIS-Assisted LOS channels(SISO)
+
 According to the plate scattering theory[2,(1)], the transmitted signal is captured by each RIS element, then rescattered to the medium in all directions. Focusing on he $n$-th RIS element, the captured power on it can be readily obtained as
 $$
 P_{n}^{RIS}=\frac{P_tG_tG_e^{Tx}\lambda^2}{(4\pi)^2a_n^2}
@@ -82,7 +84,31 @@ y=\left(\sum_{n=1}^{N} \sqrt{P_{n}^{\mathrm{Rx}}}\left(\alpha_{n} e^{j \phi_{n}}
 $$
 Where $P_{\mathrm{T}-\mathrm{R}}=\lambda^{2} /\left(4 \pi d_{\mathrm{T}-\mathrm{R}}\right)^{2}$ and $d_{T-R}$ being the Tx-Rx distance.
 
+## RIS-Assisted channels(MIMO)[2.2]
 
+
+
+![image-20210602201020997](https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210602201020997.png)
+
+|   Parameter   |                           Meanings                           |           Dimension            |
+| :-----------: | :----------------------------------------------------------: | :----------------------------: |
+|    $N_{t}$    |                  transmiter antennas number                  |         ${\mathbb R}$          |
+|    $N_{r}$    |                   receiver antennas number                   |         ${\mathbb R}$          |
+| $\mathbf{C}$  |                  End-to-end channel matrix                   | ${\mathbb C}^{N_r \times N_t}$ |
+| ${\mathbf D}$ |                    Direct channel matrix                     | ${\mathbb C}^{N_r \times N_t}$ |
+|   ${\bf H}$   | The matrix of channel coeffificients between the Tx and the RIS |  ${\mathbb C}^{N \times N_t}$  |
+|   ${\bf G}$   | The matrix of channel coeffificients between the Tx and the RIS | $\mathbb{C}^{N_{r} \times N}$  |
+| ${\bf \Phi}$  |                The response of the RIS array                 |   $\mathbb{C}^{N \times N}$    |
+
+
+
+
+
+![image-20210603152009542](../../../Library/Application Support/typora-user-images/image-20210603152009542.png)
+
+
+
+![image-20210603152316993](https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210603152316993.png)
 
 
 
@@ -102,7 +128,11 @@ python version: 3.8.10
 # Cited papers
 [[1]](https://ieeexplore.ieee.org/document/9434412)([pdf](cite/Learning-based%20Robust%20and%20Secure%20Transmission%20forReconfigurable%20Intelligent%20Surface%20Aided%20MillimeterWave%20UAV%20Communications.pdf)) X. Guo, Y. Chen and Y. Wang, "Learning-based Robust and Secure Transmission for Reconfigurable Intelligent Surface Aided Millimeter Wave UAV Communications," in IEEE Wireless Communications Letters, doi: 10.1109/LWC.2021.3081464.
 
-[2] E. Basar and I. Yildirim, "SimRIS Channel Simulator for Reconfigurable Intelligent Surface-Empowered Communication Systems," 2020 IEEE Latin-American Conference on Communications (LATINCOM), 2020, pp. 1-6, doi: 10.1109/LATINCOM50620.2020.9282349.
+[2.0] E. Basar and I. Yildirim, "SimRIS Channel Simulator for Reconfigurable Intelligent Surface-Empowered Communication Systems," 2020 IEEE Latin-American Conference on Communications (LATINCOM), 2020, pp. 1-6, doi: 10.1109/LATINCOM50620.2020.9282349. <mark>note this and [2.1] is corresponding to the SimRIS1.0 which considers the SISO system</mark>
+
+[2.1] E. Basar, I. Yildirim, “Indoor and Outdoor Physical Channel Modeling and Efficient Positioning for Reconfigurable Intelligent Surfaces in mmWave Bands“, ArXiv:2006.02240, May 2020
+
+[2.2] E. Basar, I. Yildirim, “SimRIS Channel Simulator for Reconfigurable Intelligent Surfaces in Future Wireless Networks”, ArXiv:2008.01448, Aug. 2020.<mark>this is corresponding to the SimRIS2.0 which considers the MIMO system</mark>
 
 [[3]](https://arxiv.org/abs/1509.02971)([pdf](cite/Continuous%20control%20with%20deep%20reinforcement%20learning.pdf)) Lillicrap, Timothy P., et al. "Continuous control with deep reinforcement learning." arXiv preprint arXiv:1509.02971 (2015).
 

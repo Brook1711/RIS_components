@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "/Users/guoxufeng/demo/miniforge3/envs/tf-m1/bin/python",
+    "python.pythonPath": "C:\\ProgramData\\Anaconda3\\envs\\tf\\python.exe",
     "jupyter.jupyterServerType": "local"
 }

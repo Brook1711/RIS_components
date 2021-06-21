@@ -96,20 +96,31 @@ Where $P_{\mathrm{T}-\mathrm{R}}=\lambda^{2} /\left(4 \pi d_{\mathrm{T}-\mathrm{
 |    $N_{r}$    |                   receiver antennas number                   |         ${\mathbb R}$          |
 | $\mathbf{C}$  |                  End-to-end channel matrix                   | ${\mathbb C}^{N_r \times N_t}$ |
 | ${\mathbf D}$ |                    Direct channel matrix                     | ${\mathbb C}^{N_r \times N_t}$ |
-|   ${\bf H}$   | The matrix of channel coeffificients between the Tx and the RIS |  ${\mathbb C}^{N \times N_t}$  |
-|   ${\bf G}$   | The matrix of channel coeffificients between the Tx and the RIS | $\mathbb{C}^{N_{r} \times N}$  |
+|   ${\bf H}$   | The matrix of channel coefficients between the Tx and the RIS |  ${\mathbb C}^{N \times N_t}$  |
+|   ${\bf G}$   | The matrix of channel coefficients between the Tx and the RIS | $\mathbb{C}^{N_{r} \times N}$  |
 | ${\bf \Phi}$  |                The response of the RIS array                 |   $\mathbb{C}^{N \times N}$    |
 
 
+$$
+\mathbf{C}=\mathbf{G} \mathbf{\Phi} \mathbf{H}+\mathbf{D}
+$$
+
+$$
+R=\log _{2} \operatorname{det}\left(\mathbf{I}_{N_{r}}+\frac{P_{t}}{\sigma^{2}} \mathbf{C}^{H} \mathbf{C}\right) \mathrm{bit} / \mathrm{sec} / \mathrm{Hz}
+$$
+### channel generation
+The detailed channel modeling can be seen in 3GPP 38.901 [5].
+
+The basic idea to model the mmWave channel is to consider the channel under SISO senirio and then by multiplexing the array response, we can get the result of a mmWave channel under MIMO senirio.
 
 
+The detailed SISO channel model can be found in [6]
+#### path loss
 
-![image-20210603152009542](../../../Library/Application Support/typora-user-images/image-20210603152009542.png)
+#### cluster and sub-ray
 
 
-
-![image-20210603152316993](https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210603152316993.png)
-
+### array response
 
 
 # Others
@@ -137,3 +148,11 @@ python version: 3.8.10
 [[3]](https://arxiv.org/abs/1509.02971)([pdf](cite/Continuous%20control%20with%20deep%20reinforcement%20learning.pdf)) Lillicrap, Timothy P., et al. "Continuous control with deep reinforcement learning." arXiv preprint arXiv:1509.02971 (2015).
 
 [[4]](https://arxiv.org/abs/2007.08380)([pdf](cite/Joint%20trajectory%20and%20passive%20beamforming%20design%20for%20intelligent%20reflecting%20surface-aided%20UAV%20communications%20A%20deep%20reinforcement%20learning%20approach.pdf)) Wang, Liang, et al. "Joint trajectory and passive beamforming design for intelligent reflecting surface-aided UAV communications: A deep reinforcement learning approach." arXiv preprint arXiv:2007.08380 (2020).
+
+[[5]](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3173) 3GPP, “Study on channel model for frequencies from 0.5 to 100 GHz,”
+3rd Generation Partnership Project (3GPP), Technical Specification (TS)
+38.901, 01 2020, version 16.1.0.
+[[6]](https://arxiv.org/pdf/2006.02240.pdf) E. Basar and I. Yildirim, “Indoor and outdoor physical channel
+modeling and efficient positioning for reconfigurable intelligent
+surfaces in mmWave bands,” Aug. 2020. [Online]. Available:
+https://arxiv.org/abs/2006.02240

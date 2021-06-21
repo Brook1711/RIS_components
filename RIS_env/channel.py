@@ -20,4 +20,3 @@ class Channel():
 class Subchannel:
     def __init__(self, dis = 1) -> None:
         self.distance = dis     # distance between the transceivers, m
-

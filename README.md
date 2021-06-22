@@ -122,6 +122,10 @@ The detailed SISO channel model can be found in [6]
 
 ### array response
 
+the defination of the AoA and AoD is shown below:
+
+![AoA and AoD](https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/20210622094000.png)
+
 
 # Others
 
